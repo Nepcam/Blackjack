@@ -1,0 +1,3 @@
+modify the Points property 
+   return the correct points value of a card
+modify the ToString method so it works properly     

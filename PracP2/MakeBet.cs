@@ -6,67 +6,65 @@ using System.Text;
 namespace PracP2
 {
     class MakeBet
-    {       
-        //# Instance variables
-        private int _playerBetAmount;
-        private int _startAmount;
-
-        //# Constructor
+    {
+        private int _value;
+        private int _betAmount;
+        private int _doubleBet;
+        
         /// <summary>
-        /// This constructor method will initialise the fields to default values
+        /// Constructor method
         /// </summary>
         public MakeBet()
         {
-            int _playerBetAmount = 0;
-            int _startAmount = 100;
+            _value = 0;
+            _betAmount = 0;
+            _doubleBet = 0;
         }
 
         /// <summary>
-        /// Initialises the object to the values passed in
+        /// Initialises the object to it's initial value
         /// </summary>
-        /// <param name="player_bet"></param>
-        /// <param name="start_amount"></param>
-        public MakeBet(int player_bet, int start_amount)
+        /// <param name="initialValue"></param>
+        public MakeBet(int initialValue, int bet_amount, int double_bet)
         {
-            player_bet = _playerBetAmount;
-            start_amount = _startAmount;
+            _value = initialValue;
+            _betAmount = bet_amount;
+            _doubleBet = double_bet;
         }
 
         /// <summary>
-        /// Gets and Sets the starting total amount the player can use 
+        /// Gets the value of the MakeBet
         /// </summary>
-        public int StartAmount
+        public int Value
         {
-            get { return _startAmount; }
-            set { _startAmount = value; }
+            get { return _value; }
+            set { _value = value; }
         }
 
         /// <summary>
-        /// Gets and Sets the amount to bet
+        /// Gets the amount the player bets
         /// </summary>
-        public int BetAmount
+        public void BetAmount(int bet_amount)
         {
-            get { return _playerBetAmount; }
-            set { _playerBetAmount = value; }
+            bet_amount = _value;
         }
 
         /// <summary>
-        /// Gets amount and doubles it
+        /// Doubles the bet winnings if player wins
         /// </summary>
         /// <param name="doubleBet"></param>
-        /// <returns></returns>
-        public int PlayerWin(int doubleBet)
+        public void Winner(int doubleBet)
         {
-            
+            doubleBet = _value * 2;
         }
 
-
-        // player starts off with $100
-        // player gets to view the 1st card then gets to enter an amount of money to bid
-        // 2nd card is revealed for both player and computer and compared
-        // IF player hand > 21 (goes bust) or player hand<dealer's sum (player loses their money)
-        // IF player sum > dealer's sum or dealer > 21 (goes bust) (player gets paid the amount of their bid as well as keeping their bid)
-        // IF player == dealer then they just get to keep their bid
-
+        /// <summary>
+        /// Subtracts bet from bid
+        /// </summary>
+        /// <param name="lostBet"></param>
+        public void LostBet(int lostBet)
+        {
+            _value = lostBet - _betAmount;
+        }
     }
 }

@@ -8,7 +8,6 @@ namespace PracP2
 {
     public partial class BlackjackForm : Form
     {
-
         //#############################################################################################
         //# Instance variables
         /// <summary>
@@ -23,8 +22,8 @@ namespace PracP2
         private Card dealerCard2;
 
         // declare variables
-        int betValue = 0;
-
+        int playerBet = 0;
+        int totalMoney = 0;
 
         //#############################################################################################
         //# Constants
@@ -72,8 +71,9 @@ namespace PracP2
             textBoxDealerCard2_.Text = "";
             textBoxDealerTotal_.Text = "";
 
-            // player starts game with $100
-            textBoxMoneyLeft_.Text = START_MONEY.ToString();           
+            // player starts game with $100 after the first card is shown
+            textBoxMoneyLeft_.Text = START_MONEY.ToString();
+                          
         }
 
         private void buttonDealSecondCard_Click(object sender, EventArgs e)
@@ -88,8 +88,11 @@ namespace PracP2
             textBoxPlayerTotal_.Text = playerTotal.ToString();
             textBoxDealerTotal_.Text = dealerTotal.ToString();
 
-            // player enters an amount to bet
-            MakeBet player = new MakeBet(betValue, START_MONEY);
+            // init MakeBet object and pass in the starting amount 
+            MakeBet playBlackJack = new MakeBet();
+
+            // get bet amount from the textBoxBet_ 
+            playerBet = int.Parse(textBoxBet_.Text);
             
 
             if (playerTotal > BLACKJACK)
@@ -97,12 +100,15 @@ namespace PracP2
                 // Player bust: loses even if dealer bust.
                 LoseGame();
             }
+            // if player wins 
             else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
             {
+
                 MessageBox.Show("You win!");
-                // add bet amount to total pool  
-                player.BetAmount();
+                // add bet amount to total value
+                totalMoney = playerBet * 2;
             }
+            // IF player == dealer then they just get to keep their bid
             else if (playerTotal == dealerTotal)
             {               
                 MessageBox.Show("You tie!");
@@ -112,8 +118,10 @@ namespace PracP2
                 // Player total less than dealer, and dealer did not bust.
                 LoseGame();
                 // subtract bet amount
-                betValue = int.Parse(textBoxBet_.Text) - int.Parse(textBoxBet_.Text);
+                totalMoney = playerBet - playerBet;
             }
+            // add total to Money Left textbox
+            totalMoney.ToString(textBoxMoneyLeft_.Text);
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)

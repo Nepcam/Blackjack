@@ -23,7 +23,7 @@ namespace PracP2
 
         // declare variables
         int playerBet = 0;
-        int totalMoney = 0;
+        int totalMoney = 100;
 
         //#############################################################################################
         //# Constants
@@ -48,6 +48,8 @@ namespace PracP2
             InitializeComponent();
             // Prevent the user from resising the form
             MinimumSize = MaximumSize = Size;
+            totalMoney = START_MONEY;
+            textBoxMoneyLeft_.Text = totalMoney.ToString();
         }
 
 
@@ -72,7 +74,7 @@ namespace PracP2
             textBoxDealerTotal_.Text = "";
 
             // player starts game with $100 after the first card is shown
-            textBoxMoneyLeft_.Text = START_MONEY.ToString();
+            //textBoxMoneyLeft_.Text = totalMoney.ToString();
                           
         }
 
@@ -89,7 +91,7 @@ namespace PracP2
             textBoxDealerTotal_.Text = dealerTotal.ToString();
 
             // init MakeBet object and pass in the starting amount 
-            MakeBet playBlackJack = new MakeBet();
+            //MakeBet playBlackJack = new MakeBet();
 
             // get bet amount from the textBoxBet_ 
             playerBet = int.Parse(textBoxBet_.Text);
@@ -99,6 +101,7 @@ namespace PracP2
             { 
                 // Player bust: loses even if dealer bust.
                 LoseGame();
+                totalMoney -= playerBet * 2;
             }
             // if player wins 
             else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
@@ -106,7 +109,7 @@ namespace PracP2
 
                 MessageBox.Show("You win!");
                 // add bet amount to total value
-                totalMoney = playerBet * 2;
+                totalMoney += playerBet * 2;
             }
             // IF player == dealer then they just get to keep their bid
             else if (playerTotal == dealerTotal)
@@ -118,10 +121,10 @@ namespace PracP2
                 // Player total less than dealer, and dealer did not bust.
                 LoseGame();
                 // subtract bet amount
-                totalMoney = playerBet - playerBet;
+                totalMoney -= playerBet * 2;
             }
             // add total to Money Left textbox
-            totalMoney.ToString(textBoxMoneyLeft_.Text);
+            textBoxMoneyLeft_.Text = totalMoney.ToString();
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)

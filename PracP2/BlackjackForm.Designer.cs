@@ -127,6 +127,7 @@
             this.textBoxMoneyLeft_.ReadOnly = true;
             this.textBoxMoneyLeft_.Size = new System.Drawing.Size(114, 20);
             this.textBoxMoneyLeft_.TabIndex = 30;
+            this.textBoxMoneyLeft_.Text = "$100";
             // 
             // labelMoneyToBet_
             // 

@@ -47,6 +47,7 @@
             this.textBoxPlayerCard2_ = new System.Windows.Forms.TextBox();
             this.textBoxPlayerCard1_ = new System.Windows.Forms.TextBox();
             this.buttonDealFirstCard_ = new System.Windows.Forms.Button();
+            this.listBoxPlayerCards = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonQuit_
@@ -234,11 +235,22 @@
             this.buttonDealFirstCard_.UseVisualStyleBackColor = true;
             this.buttonDealFirstCard_.Click += new System.EventHandler(this.buttonDealFirstCard_Click);
             // 
+            // listBoxPlayerCards
+            // 
+            this.listBoxPlayerCards.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxPlayerCards.FormattingEnabled = true;
+            this.listBoxPlayerCards.ItemHeight = 14;
+            this.listBoxPlayerCards.Location = new System.Drawing.Point(485, 24);
+            this.listBoxPlayerCards.Name = "listBoxPlayerCards";
+            this.listBoxPlayerCards.Size = new System.Drawing.Size(176, 158);
+            this.listBoxPlayerCards.TabIndex = 38;
+            // 
             // BlackjackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 353);
+            this.ClientSize = new System.Drawing.Size(878, 353);
+            this.Controls.Add(this.listBoxPlayerCards);
             this.Controls.Add(this.buttonQuit_);
             this.Controls.Add(this.labelDealerTotal_);
             this.Controls.Add(this.labelPLayerTotal_);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.TextBox textBoxPlayerCard2_;
         private System.Windows.Forms.TextBox textBoxPlayerCard1_;
         private System.Windows.Forms.Button buttonDealFirstCard_;
+        private System.Windows.Forms.ListBox listBoxPlayerCards;
     }
 }
 

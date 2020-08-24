@@ -59,24 +59,21 @@ namespace PracP2
         //# Event Handlers
         private void buttonDealFirstCard_Click(object sender, EventArgs e)
         {
-            // Generate 4 new random cards
+            // Generate 4 new random cards for player
             playerCard1 = new Card(randomGenerator.Next(NUM_CARDS));
-            playerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
+            //playerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
 
             // add generated random cards to List<Card> playerCardList
             playerCardList.Add(playerCard1);
-            dealerCard1 = new Card(randomGenerator.Next(NUM_CARDS));
 
-            playerCardList.Add(playerCard2);
-            dealerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
+
+            // dealer cards 1 & 2
+            dealerCard1 = new Card(randomGenerator.Next(NUM_CARDS));
+            //dealerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
 
             // Display the first card to player and dealer
-            //textBoxPlayerCard1_.Text = playerCard1.ToString();
-            textBoxDealerCard1_.Text = dealerCard1.ToString();
-
-            // display the first card to the listbox from List<Card> playerCardList
             listBoxPlayerCards.Items.Add(playerCardList[0].ToString());
-            //listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
+            textBoxDealerCard1_.Text = dealerCard1.ToString();
 
             // Clear the second card and totals
             textBoxPlayerCard2_.Text = "";
@@ -90,60 +87,70 @@ namespace PracP2
 
         private void buttonDealSecondCard_Click(object sender, EventArgs e)
         {
+            // generate 2nd random card
+            playerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
+            dealerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
             //display second two cards and total
-            listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
             //textBoxPlayerCard2_.Text = playerCard2.ToString();
-            textBoxDealerCard2_.Text = dealerCard2.ToString();
+            //textBoxDealerCard2_.Text = dealerCard2.ToString();
 
             int playerTotal = playerCard1.Points + playerCard2.Points;
             int dealerTotal = dealerCard1.Points + dealerCard2.Points;
 
-            textBoxPlayerTotal_.Text = playerTotal.ToString();
-            textBoxDealerTotal_.Text = dealerTotal.ToString();
+            //textBoxPlayerTotal_.Text = playerTotal.ToString();
+            //textBoxDealerTotal_.Text = dealerTotal.ToString();
 
-            // init MakeBet object and pass in the starting amount 
-            // MakeBet playBlackJack = new MakeBet();
 
-            try
+            if (playerBet == null)
+            {
+                MessageBox.Show("Please place a bet");
+            }
+            else if (playerBet == textBoxBet_.SelectionLength)
             {
                 // get bet amount from the textBoxBet_ 
-                playerBet = int.Parse(textBoxBet_.Text);              
-                listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
+                playerBet = int.Parse(textBoxBet_.Text);
 
-                if (playerTotal > BLACKJACK)
-                {
-                    // Player bust: loses even if dealer bust.
-                    LoseGame();
-                    totalMoney -= playerBet * 2;
-                }
-                // if player wins 
-                else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
-                {
-
-                    MessageBox.Show("You win!");
-                    // add bet amount to total value
-                    totalMoney += playerBet * 2;
-                }
-                // IF player == dealer then they just get to keep their bid
-                else if (playerTotal == dealerTotal)
-                {
-                    MessageBox.Show("You tie!");
-                }
-                else
-                {
-                    // Player total less than dealer, and dealer did not bust.
-                    LoseGame();
-                    // subtract bet amount
-                    totalMoney -= playerBet * 2;
-                }
-                // add total to Money Left textbox
-                textBoxMoneyLeft_.Text = totalMoney.ToString();
+                // player and dealer totals
+                textBoxPlayerTotal_.Text = playerTotal.ToString();
+                textBoxDealerTotal_.Text = dealerTotal.ToString();
             }
-            catch
+
+            if (playerTotal > BLACKJACK)
             {
-                MessageBox.Show("Please enter a bet");
+                // Player bust: loses even if dealer bust.
+                LoseGame();
+                totalMoney -= playerBet * 2;
             }
+            // if player wins 
+            else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
+            {
+
+                MessageBox.Show("You win!");
+                // add bet amount to total value
+                totalMoney += playerBet * 2;
+            }
+            // IF player == dealer then they just get to keep their bid
+            else if (playerTotal == dealerTotal)
+            {
+                MessageBox.Show("You tie!");
+            }
+            else
+            {
+                // Player total less than dealer, and dealer did not bust.
+                LoseGame();
+                // subtract bet amount
+                totalMoney -= playerBet * 2;
+            }
+            //display second two cards and total
+            textBoxPlayerCard2_.Text = playerCard2.ToString();
+            //listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
+            textBoxDealerCard2_.Text = dealerCard2.ToString();
+            // add total to Money Left textbox
+            textBoxMoneyLeft_.Text = totalMoney.ToString();
+
+
         }
+
 
         private void buttonQuit_Click(object sender, EventArgs e)
         {

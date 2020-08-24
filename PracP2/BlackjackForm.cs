@@ -19,6 +19,7 @@ namespace PracP2
         private Card playerCard2;
 
         List<Card> playerCardList = new List<Card>();
+        List<Card> dealerCardList = new List<Card>();
 
         private Card dealerCard1;
         private Card dealerCard2;
@@ -59,26 +60,25 @@ namespace PracP2
         //# Event Handlers
         private void buttonDealFirstCard_Click(object sender, EventArgs e)
         {
-            // Generate 4 new random cards for player
+            // Generate 1st random card for player
             playerCard1 = new Card(randomGenerator.Next(NUM_CARDS));
-            //playerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
-
-            // add generated random cards to List<Card> playerCardList
+            // add generated 1st random card to List<Card> playerCardList
             playerCardList.Add(playerCard1);
 
-
-            // dealer cards 1 & 2
+            // Generate 1st random card for dealer
             dealerCard1 = new Card(randomGenerator.Next(NUM_CARDS));
-            //dealerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
+            // add generated 1st random card to List<Card> dealerCardList
+            dealerCardList.Add(dealerCard1);
 
             // Display the first card to player and dealer
             listBoxPlayerCards.Items.Add(playerCardList[0].ToString());
-            textBoxDealerCard1_.Text = dealerCard1.ToString();
+            //textBoxDealerCard1_.Text = dealerCard1.ToString();
+            listBoxDealerCards.Items.Add(dealerCardList[0].ToString());
 
             // Clear the second card and totals
-            textBoxPlayerCard2_.Text = "";
-            textBoxPlayerTotal_.Text = "";
-            textBoxDealerCard2_.Text = "";
+            //textBoxPlayerCard2_.Text = "";
+            //textBoxPlayerTotal_.Text = "";
+            //textBoxDealerCard2_.Text = "";
             textBoxDealerTotal_.Text = "";
 
             // player starts game with $100 after the first card is shown
@@ -87,18 +87,18 @@ namespace PracP2
 
         private void buttonDealSecondCard_Click(object sender, EventArgs e)
         {
-            // generate 2nd random card
+            // generate random card no2
             playerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
+            // add card no2 to the playerCardList
+            playerCardList.Add(playerCard2);
+            // dealer card no2
             dealerCard2 = new Card(randomGenerator.Next(NUM_CARDS));
-            //display second two cards and total
-            //textBoxPlayerCard2_.Text = playerCard2.ToString();
-            //textBoxDealerCard2_.Text = dealerCard2.ToString();
+            // add card no2 to the dealerCardList
+            dealerCardList.Add(dealerCard2);
 
+            // get the total points for player and dealer
             int playerTotal = playerCard1.Points + playerCard2.Points;
             int dealerTotal = dealerCard1.Points + dealerCard2.Points;
-
-            //textBoxPlayerTotal_.Text = playerTotal.ToString();
-            //textBoxDealerTotal_.Text = dealerTotal.ToString();
 
 
             if (playerBet == null)
@@ -114,6 +114,9 @@ namespace PracP2
                 textBoxPlayerTotal_.Text = playerTotal.ToString();
                 textBoxDealerTotal_.Text = dealerTotal.ToString();
             }
+            // display in allocated listBoxes
+            listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
+            listBoxDealerCards.Items.Add(dealerCardList[1].ToString());
 
             if (playerTotal > BLACKJACK)
             {
@@ -141,14 +144,12 @@ namespace PracP2
                 // subtract bet amount
                 totalMoney -= playerBet * 2;
             }
-            //display second two cards and total
-            textBoxPlayerCard2_.Text = playerCard2.ToString();
             //listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
-            textBoxDealerCard2_.Text = dealerCard2.ToString();
+            //textBoxDealerCard2_.Text = dealerCard2.ToString();
+
+
             // add total to Money Left textbox
             textBoxMoneyLeft_.Text = totalMoney.ToString();
-
-
         }
 
 
@@ -165,5 +166,6 @@ namespace PracP2
             MessageBox.Show("You lose!");
         }
 
+        
     }
 }

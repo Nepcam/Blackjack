@@ -42,17 +42,16 @@
             this.labelPlayerCard2_ = new System.Windows.Forms.Label();
             this.labelPlayerCard1_ = new System.Windows.Forms.Label();
             this.textBoxBet_ = new System.Windows.Forms.TextBox();
-            this.textBoxDealerCard2_ = new System.Windows.Forms.TextBox();
-            this.textBoxDealerCard1_ = new System.Windows.Forms.TextBox();
-            this.textBoxPlayerCard2_ = new System.Windows.Forms.TextBox();
-            this.textBoxPlayerCard1_ = new System.Windows.Forms.TextBox();
             this.buttonDealFirstCard_ = new System.Windows.Forms.Button();
             this.listBoxPlayerCards = new System.Windows.Forms.ListBox();
+            this.listBoxDealerCards = new System.Windows.Forms.ListBox();
+            this.buttonThirdCard = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonQuit_
             // 
-            this.buttonQuit_.Location = new System.Drawing.Point(272, 304);
+            this.buttonQuit_.Location = new System.Drawing.Point(443, 307);
             this.buttonQuit_.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQuit_.Name = "buttonQuit_";
             this.buttonQuit_.Size = new System.Drawing.Size(154, 28);
@@ -64,7 +63,7 @@
             // labelDealerTotal_
             // 
             this.labelDealerTotal_.AutoSize = true;
-            this.labelDealerTotal_.Location = new System.Drawing.Point(278, 158);
+            this.labelDealerTotal_.Location = new System.Drawing.Point(279, 179);
             this.labelDealerTotal_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDealerTotal_.Name = "labelDealerTotal_";
             this.labelDealerTotal_.Size = new System.Drawing.Size(68, 13);
@@ -74,7 +73,7 @@
             // labelPLayerTotal_
             // 
             this.labelPLayerTotal_.AutoSize = true;
-            this.labelPLayerTotal_.Location = new System.Drawing.Point(56, 159);
+            this.labelPLayerTotal_.Location = new System.Drawing.Point(17, 179);
             this.labelPLayerTotal_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPLayerTotal_.Name = "labelPLayerTotal_";
             this.labelPLayerTotal_.Size = new System.Drawing.Size(66, 13);
@@ -83,25 +82,25 @@
             // 
             // textBoxDealerTotal_
             // 
-            this.textBoxDealerTotal_.Location = new System.Drawing.Point(272, 179);
+            this.textBoxDealerTotal_.Location = new System.Drawing.Point(391, 179);
             this.textBoxDealerTotal_.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDealerTotal_.Name = "textBoxDealerTotal_";
             this.textBoxDealerTotal_.ReadOnly = true;
-            this.textBoxDealerTotal_.Size = new System.Drawing.Size(133, 20);
+            this.textBoxDealerTotal_.Size = new System.Drawing.Size(137, 20);
             this.textBoxDealerTotal_.TabIndex = 34;
             // 
             // textBoxPlayerTotal_
             // 
-            this.textBoxPlayerTotal_.Location = new System.Drawing.Point(51, 179);
+            this.textBoxPlayerTotal_.Location = new System.Drawing.Point(127, 179);
             this.textBoxPlayerTotal_.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPlayerTotal_.Name = "textBoxPlayerTotal_";
             this.textBoxPlayerTotal_.ReadOnly = true;
-            this.textBoxPlayerTotal_.Size = new System.Drawing.Size(128, 20);
+            this.textBoxPlayerTotal_.Size = new System.Drawing.Size(137, 20);
             this.textBoxPlayerTotal_.TabIndex = 33;
             // 
             // buttonDealSecondCard_
             // 
-            this.buttonDealSecondCard_.Location = new System.Drawing.Point(272, 266);
+            this.buttonDealSecondCard_.Location = new System.Drawing.Point(272, 270);
             this.buttonDealSecondCard_.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDealSecondCard_.Name = "buttonDealSecondCard_";
             this.buttonDealSecondCard_.Size = new System.Drawing.Size(154, 28);
@@ -143,7 +142,7 @@
             // labelDealerCard2_
             // 
             this.labelDealerCard2_.AutoSize = true;
-            this.labelDealerCard2_.Location = new System.Drawing.Point(278, 93);
+            this.labelDealerCard2_.Location = new System.Drawing.Point(279, 45);
             this.labelDealerCard2_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDealerCard2_.Name = "labelDealerCard2_";
             this.labelDealerCard2_.Size = new System.Drawing.Size(107, 13);
@@ -153,7 +152,7 @@
             // labelDealerCard1_
             // 
             this.labelDealerCard1_.AutoSize = true;
-            this.labelDealerCard1_.Location = new System.Drawing.Point(276, 24);
+            this.labelDealerCard1_.Location = new System.Drawing.Point(279, 23);
             this.labelDealerCard1_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDealerCard1_.Name = "labelDealerCard1_";
             this.labelDealerCard1_.Size = new System.Drawing.Size(88, 13);
@@ -163,7 +162,7 @@
             // labelPlayerCard2_
             // 
             this.labelPlayerCard2_.AutoSize = true;
-            this.labelPlayerCard2_.Location = new System.Drawing.Point(56, 93);
+            this.labelPlayerCard2_.Location = new System.Drawing.Point(17, 45);
             this.labelPlayerCard2_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerCard2_.Name = "labelPlayerCard2_";
             this.labelPlayerCard2_.Size = new System.Drawing.Size(105, 13);
@@ -173,7 +172,7 @@
             // labelPlayerCard1_
             // 
             this.labelPlayerCard1_.AutoSize = true;
-            this.labelPlayerCard1_.Location = new System.Drawing.Point(52, 22);
+            this.labelPlayerCard1_.Location = new System.Drawing.Point(17, 22);
             this.labelPlayerCard1_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerCard1_.Name = "labelPlayerCard1_";
             this.labelPlayerCard1_.Size = new System.Drawing.Size(86, 13);
@@ -187,42 +186,6 @@
             this.textBoxBet_.Name = "textBoxBet_";
             this.textBoxBet_.Size = new System.Drawing.Size(114, 20);
             this.textBoxBet_.TabIndex = 24;
-            // 
-            // textBoxDealerCard2_
-            // 
-            this.textBoxDealerCard2_.Location = new System.Drawing.Point(272, 113);
-            this.textBoxDealerCard2_.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDealerCard2_.Name = "textBoxDealerCard2_";
-            this.textBoxDealerCard2_.ReadOnly = true;
-            this.textBoxDealerCard2_.Size = new System.Drawing.Size(133, 20);
-            this.textBoxDealerCard2_.TabIndex = 23;
-            // 
-            // textBoxDealerCard1_
-            // 
-            this.textBoxDealerCard1_.Location = new System.Drawing.Point(272, 43);
-            this.textBoxDealerCard1_.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxDealerCard1_.Name = "textBoxDealerCard1_";
-            this.textBoxDealerCard1_.ReadOnly = true;
-            this.textBoxDealerCard1_.Size = new System.Drawing.Size(133, 20);
-            this.textBoxDealerCard1_.TabIndex = 22;
-            // 
-            // textBoxPlayerCard2_
-            // 
-            this.textBoxPlayerCard2_.Location = new System.Drawing.Point(51, 113);
-            this.textBoxPlayerCard2_.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxPlayerCard2_.Name = "textBoxPlayerCard2_";
-            this.textBoxPlayerCard2_.ReadOnly = true;
-            this.textBoxPlayerCard2_.Size = new System.Drawing.Size(128, 20);
-            this.textBoxPlayerCard2_.TabIndex = 21;
-            // 
-            // textBoxPlayerCard1_
-            // 
-            this.textBoxPlayerCard1_.Location = new System.Drawing.Point(51, 43);
-            this.textBoxPlayerCard1_.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxPlayerCard1_.Name = "textBoxPlayerCard1_";
-            this.textBoxPlayerCard1_.ReadOnly = true;
-            this.textBoxPlayerCard1_.Size = new System.Drawing.Size(128, 20);
-            this.textBoxPlayerCard1_.TabIndex = 20;
             // 
             // buttonDealFirstCard_
             // 
@@ -240,16 +203,49 @@
             this.listBoxPlayerCards.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPlayerCards.FormattingEnabled = true;
             this.listBoxPlayerCards.ItemHeight = 14;
-            this.listBoxPlayerCards.Location = new System.Drawing.Point(485, 24);
+            this.listBoxPlayerCards.Location = new System.Drawing.Point(127, 16);
             this.listBoxPlayerCards.Name = "listBoxPlayerCards";
-            this.listBoxPlayerCards.Size = new System.Drawing.Size(176, 158);
+            this.listBoxPlayerCards.Size = new System.Drawing.Size(137, 158);
             this.listBoxPlayerCards.TabIndex = 38;
+            // 
+            // listBoxDealerCards
+            // 
+            this.listBoxDealerCards.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxDealerCards.FormattingEnabled = true;
+            this.listBoxDealerCards.ItemHeight = 14;
+            this.listBoxDealerCards.Location = new System.Drawing.Point(391, 16);
+            this.listBoxDealerCards.Name = "listBoxDealerCards";
+            this.listBoxDealerCards.Size = new System.Drawing.Size(137, 158);
+            this.listBoxDealerCards.TabIndex = 39;
+            // 
+            // buttonThirdCard
+            // 
+            this.buttonThirdCard.Location = new System.Drawing.Point(272, 308);
+            this.buttonThirdCard.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonThirdCard.Name = "buttonThirdCard";
+            this.buttonThirdCard.Size = new System.Drawing.Size(154, 28);
+            this.buttonThirdCard.TabIndex = 40;
+            this.buttonThirdCard.Text = "Deal Third Card";
+            this.buttonThirdCard.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 70);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Player\'s third card";
             // 
             // BlackjackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 353);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonThirdCard);
+            this.Controls.Add(this.listBoxDealerCards);
             this.Controls.Add(this.listBoxPlayerCards);
             this.Controls.Add(this.buttonQuit_);
             this.Controls.Add(this.labelDealerTotal_);
@@ -265,10 +261,6 @@
             this.Controls.Add(this.labelPlayerCard2_);
             this.Controls.Add(this.labelPlayerCard1_);
             this.Controls.Add(this.textBoxBet_);
-            this.Controls.Add(this.textBoxDealerCard2_);
-            this.Controls.Add(this.textBoxDealerCard1_);
-            this.Controls.Add(this.textBoxPlayerCard2_);
-            this.Controls.Add(this.textBoxPlayerCard1_);
             this.Controls.Add(this.buttonDealFirstCard_);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BlackjackForm";
@@ -294,12 +286,11 @@
         private System.Windows.Forms.Label labelPlayerCard2_;
         private System.Windows.Forms.Label labelPlayerCard1_;
         private System.Windows.Forms.TextBox textBoxBet_;
-        private System.Windows.Forms.TextBox textBoxDealerCard2_;
-        private System.Windows.Forms.TextBox textBoxDealerCard1_;
-        private System.Windows.Forms.TextBox textBoxPlayerCard2_;
-        private System.Windows.Forms.TextBox textBoxPlayerCard1_;
         private System.Windows.Forms.Button buttonDealFirstCard_;
         private System.Windows.Forms.ListBox listBoxPlayerCards;
+        private System.Windows.Forms.ListBox listBoxDealerCards;
+        private System.Windows.Forms.Button buttonThirdCard;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -82,7 +82,7 @@ namespace PracP2
             //textBoxPlayerCard2_.Text = "";
             textBoxPlayerTotal_.Text = "";
             //textBoxDealerCard2_.Text = "";
-            textBoxDealerTotal_.Text = "";                        
+            textBoxDealerTotal_.Text = "";
         }
 
         private void buttonDealSecondCard_Click(object sender, EventArgs e)
@@ -142,6 +142,36 @@ namespace PracP2
             // display
             listBoxPlayerCards.Items.Add(playerCardList[2].ToString());
 
+            // check win
+            //if (playerTotal > BLACKJACK)
+            //{
+            //    // Player bust: loses even if dealer bust.
+            //    LoseGame();
+            //    totalMoney -= playerBet * 2;
+            //}
+            //// if player wins 
+            //else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
+            //{
+
+            //    MessageBox.Show("You win!");
+            //    // add bet amount to total value
+            //    totalMoney += playerBet * 2;
+            //}
+            //// IF player == dealer then they just get to keep their bid
+            //else if (playerTotal == dealerTotal)
+            //{
+            //    MessageBox.Show("You tie!");
+            //}
+            //else
+            //{
+            //    // Player total less than dealer, and dealer did not bust.
+            //    LoseGame();
+            //    // subtract bet amount
+            //    totalMoney -= playerBet * 2;
+            //}
+            //// add total to Money Left textbox
+            //textBoxMoneyLeft_.Text = totalMoney.ToString();
+
         }
 
         private void buttonCalculateWin_Click(object sender, EventArgs e)
@@ -157,42 +187,72 @@ namespace PracP2
                 // get the total points for player and dealer
                 int playerTotal = playerCard1.Points + playerCard2.Points;
                 int dealerTotal = dealerCard1.Points + dealerCard2.Points;
+
+                if (playerTotal > BLACKJACK)
+                {
+                    // Player bust: loses even if dealer bust.
+                    LoseGame();
+                    totalMoney -= playerBet * 2;
+                }
+                // if player wins 
+                else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
+                {
+
+                    MessageBox.Show("You win!");
+                    // add bet amount to total value
+                    totalMoney += playerBet * 2;
+                }
+                // IF player == dealer then they just get to keep their bid
+                else if (playerTotal == dealerTotal)
+                {
+                    MessageBox.Show("You tie!");
+                }
+                else
+                {
+                    // Player total less than dealer, and dealer did not bust.
+                    LoseGame();
+                    // subtract bet amount
+                    totalMoney -= playerBet * 2;
+                }
+                // add total to Money Left textbox
+                textBoxMoneyLeft_.Text = totalMoney.ToString();
             }
-            else 
+            else
             {
                 // get the total points for player and dealer
                 int playerTotal = playerCard1.Points + playerCard2.Points + playerCard3.Points;
                 int dealerTotal = dealerCard1.Points + dealerCard2.Points;
             }
 
-            if (playerTotal > BLACKJACK)
-            {
-                // Player bust: loses even if dealer bust.
-                LoseGame();
-                totalMoney -= playerBet * 2;
-            }
-            // if player wins 
-            else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
-            {
+            //    if (playerTotal > BLACKJACK)
+            //    {
+            //        // Player bust: loses even if dealer bust.
+            //        LoseGame();
+            //        totalMoney -= playerBet * 2;
+            //    }
+            //    // if player wins 
+            //    else if (dealerTotal > BLACKJACK || playerTotal > dealerTotal)
+            //    {
 
-                MessageBox.Show("You win!");
-                // add bet amount to total value
-                totalMoney += playerBet * 2;
-            }
-            // IF player == dealer then they just get to keep their bid
-            else if (playerTotal == dealerTotal)
-            {
-                MessageBox.Show("You tie!");
-            }
-            else
-            {
-                // Player total less than dealer, and dealer did not bust.
-                LoseGame();
-                // subtract bet amount
-                totalMoney -= playerBet * 2;
-            }
-            // add total to Money Left textbox
-            textBoxMoneyLeft_.Text = totalMoney.ToString();
+            //        MessageBox.Show("You win!");
+            //        // add bet amount to total value
+            //        totalMoney += playerBet * 2;
+            //    }
+            //    // IF player == dealer then they just get to keep their bid
+            //    else if (playerTotal == dealerTotal)
+            //    {
+            //        MessageBox.Show("You tie!");
+            //    }
+            //    else
+            //    {
+            //        // Player total less than dealer, and dealer did not bust.
+            //        LoseGame();
+            //        // subtract bet amount
+            //        totalMoney -= playerBet * 2;
+            //    }
+            //    // add total to Money Left textbox
+            //    textBoxMoneyLeft_.Text = totalMoney.ToString();
+            //}
         }
     }
 }

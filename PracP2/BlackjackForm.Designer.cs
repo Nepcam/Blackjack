@@ -47,11 +47,12 @@
             this.listBoxDealerCards = new System.Windows.Forms.ListBox();
             this.buttonThirdCard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonCalculateWin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonQuit_
             // 
-            this.buttonQuit_.Location = new System.Drawing.Point(443, 307);
+            this.buttonQuit_.Location = new System.Drawing.Point(430, 308);
             this.buttonQuit_.Margin = new System.Windows.Forms.Padding(2);
             this.buttonQuit_.Name = "buttonQuit_";
             this.buttonQuit_.Size = new System.Drawing.Size(154, 28);
@@ -142,7 +143,7 @@
             // labelDealerCard2_
             // 
             this.labelDealerCard2_.AutoSize = true;
-            this.labelDealerCard2_.Location = new System.Drawing.Point(279, 45);
+            this.labelDealerCard2_.Location = new System.Drawing.Point(279, 35);
             this.labelDealerCard2_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDealerCard2_.Name = "labelDealerCard2_";
             this.labelDealerCard2_.Size = new System.Drawing.Size(107, 13);
@@ -162,7 +163,7 @@
             // labelPlayerCard2_
             // 
             this.labelPlayerCard2_.AutoSize = true;
-            this.labelPlayerCard2_.Location = new System.Drawing.Point(17, 45);
+            this.labelPlayerCard2_.Location = new System.Drawing.Point(17, 35);
             this.labelPlayerCard2_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerCard2_.Name = "labelPlayerCard2_";
             this.labelPlayerCard2_.Size = new System.Drawing.Size(105, 13);
@@ -227,22 +228,35 @@
             this.buttonThirdCard.TabIndex = 40;
             this.buttonThirdCard.Text = "Deal Third Card";
             this.buttonThirdCard.UseVisualStyleBackColor = true;
+            this.buttonThirdCard.Click += new System.EventHandler(this.buttonThirdCard_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 70);
+            this.label1.Location = new System.Drawing.Point(17, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 41;
             this.label1.Text = "Player\'s third card";
             // 
+            // buttonCalculateWin
+            // 
+            this.buttonCalculateWin.Location = new System.Drawing.Point(430, 270);
+            this.buttonCalculateWin.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCalculateWin.Name = "buttonCalculateWin";
+            this.buttonCalculateWin.Size = new System.Drawing.Size(154, 28);
+            this.buttonCalculateWin.TabIndex = 42;
+            this.buttonCalculateWin.Text = "Win Lose Draw";
+            this.buttonCalculateWin.UseVisualStyleBackColor = true;
+            this.buttonCalculateWin.Click += new System.EventHandler(this.buttonCalculateWin_Click);
+            // 
             // BlackjackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 353);
+            this.Controls.Add(this.buttonCalculateWin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonThirdCard);
             this.Controls.Add(this.listBoxDealerCards);
@@ -291,6 +305,7 @@
         private System.Windows.Forms.ListBox listBoxDealerCards;
         private System.Windows.Forms.Button buttonThirdCard;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonCalculateWin;
     }
 }
 

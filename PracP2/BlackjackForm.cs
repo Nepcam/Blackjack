@@ -17,6 +17,7 @@ namespace PracP2
 
         private Card playerCard1;
         private Card playerCard2;
+        private Card playerCard3;
 
         List<Card> playerCardList = new List<Card>();
         List<Card> dealerCardList = new List<Card>();
@@ -27,6 +28,8 @@ namespace PracP2
         // declare variables
         int playerBet = 0;
         int totalMoney = 100;
+        int playerTotal = 0;
+        int dealerTotal = 0;
 
         //#############################################################################################
         //# Constants
@@ -77,12 +80,9 @@ namespace PracP2
 
             // Clear the second card and totals
             //textBoxPlayerCard2_.Text = "";
-            //textBoxPlayerTotal_.Text = "";
+            textBoxPlayerTotal_.Text = "";
             //textBoxDealerCard2_.Text = "";
-            textBoxDealerTotal_.Text = "";
-
-            // player starts game with $100 after the first card is shown
-            //textBoxMoneyLeft_.Text = totalMoney.ToString();                          
+            textBoxDealerTotal_.Text = "";                        
         }
 
         private void buttonDealSecondCard_Click(object sender, EventArgs e)
@@ -96,11 +96,6 @@ namespace PracP2
             // add card no2 to the dealerCardList
             dealerCardList.Add(dealerCard2);
 
-            // get the total points for player and dealer
-            int playerTotal = playerCard1.Points + playerCard2.Points;
-            int dealerTotal = dealerCard1.Points + dealerCard2.Points;
-
-
             if (playerBet == null)
             {
                 MessageBox.Show("Please place a bet");
@@ -110,6 +105,10 @@ namespace PracP2
                 // get bet amount from the textBoxBet_ 
                 playerBet = int.Parse(textBoxBet_.Text);
 
+                // get the total points for player and dealer
+                int playerTotal = playerCard1.Points + playerCard2.Points;
+                int dealerTotal = dealerCard1.Points + dealerCard2.Points;
+
                 // player and dealer totals
                 textBoxPlayerTotal_.Text = playerTotal.ToString();
                 textBoxDealerTotal_.Text = dealerTotal.ToString();
@@ -117,6 +116,54 @@ namespace PracP2
             // display in allocated listBoxes
             listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
             listBoxDealerCards.Items.Add(dealerCardList[1].ToString());
+        }
+
+
+        private void buttonQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void LoseGame()
+        {
+            MessageBox.Show("You lose!");
+        }
+
+        private void buttonThirdCard_Click(object sender, EventArgs e)
+        {
+            // get the total points for player and dealer
+            int playerTotal = playerCard1.Points + playerCard2.Points;
+            int dealerTotal = dealerCard1.Points + dealerCard2.Points;
+
+            // generate 3rd card 
+            playerCard3 = new Card(randomGenerator.Next(NUM_CARDS));
+            // add card no3 to the playerCardList
+            playerCardList.Add(playerCard3);
+            // display
+            listBoxPlayerCards.Items.Add(playerCardList[2].ToString());
+
+        }
+
+        private void buttonCalculateWin_Click(object sender, EventArgs e)
+        {
+
+            // player and dealer totals
+            //textBoxPlayerTotal_.Text = playerTotal.ToString();
+            //textBoxDealerTotal_.Text = dealerTotal.ToString();
+
+            // check if user only takes 2 cards
+            if (playerCard3 == null)
+            {
+                // get the total points for player and dealer
+                int playerTotal = playerCard1.Points + playerCard2.Points;
+                int dealerTotal = dealerCard1.Points + dealerCard2.Points;
+            }
+            else 
+            {
+                // get the total points for player and dealer
+                int playerTotal = playerCard1.Points + playerCard2.Points + playerCard3.Points;
+                int dealerTotal = dealerCard1.Points + dealerCard2.Points;
+            }
 
             if (playerTotal > BLACKJACK)
             {
@@ -144,28 +191,8 @@ namespace PracP2
                 // subtract bet amount
                 totalMoney -= playerBet * 2;
             }
-            //listBoxPlayerCards.Items.Add(playerCardList[1].ToString());
-            //textBoxDealerCard2_.Text = dealerCard2.ToString();
-
-
             // add total to Money Left textbox
             textBoxMoneyLeft_.Text = totalMoney.ToString();
         }
-
-
-        private void buttonQuit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        //#############################################################################################
-        //# Private Methods
-        private void LoseGame()
-        {
-            MessageBox.Show("You lose!");
-        }
-
-        
     }
 }

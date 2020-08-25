@@ -1,2 +1,2 @@
 # Blackjack
-working with classes
+working with Lists and Objects

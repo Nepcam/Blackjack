@@ -53,6 +53,7 @@
     <Compile Include="BlackjackForm.Designer.cs">
       <DependentUpon>BlackjackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BlackjackForm.resx">
